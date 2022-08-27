@@ -1,0 +1,25 @@
+.linea {
+    max-width: 450px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex-grow: 1;
+
+}
+
+.linea label {
+    width: 35%;
+    text-align: right;
+}
+
+.linea input {
+    width: 65%;
+    border-radius: 5px;
+}
+
+.register {
+    width: 450px;
+    height: 30px;
+    background-color: var(--clickeable);
+    border-radius: 10px;
+}

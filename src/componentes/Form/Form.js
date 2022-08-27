@@ -16,31 +16,31 @@ function Form(props) {
             <div className='centrado'>
                 <form  className='formulario'>
                     <div className='linea'>
-                        <p>Nombre</p>
-                        <input type='text'></input>
+                        <label for='name'>Nombre</label>
+                        <input type='text' id='name' name='name'></input>
                     </div>
                     <div className='linea'>
-                        <p>Apellido</p>
-                        <input type='text'></input>
+                        <label for='surname'>Apellido</label>
+                        <input type='text' id='surname' name='surname'></input>
                     </div>
                     <div className='linea'>
-                        <p>Número de DNI</p>
-                        <input type=''></input>
+                        <label for='dni'>Número de DNI</label>
+                        <input type='number' id='dni' name='dni'></input>
                     </div>
                     <div className='linea'>
-                        <p>Número de Teléfono</p>
-                        <input type='tel'></input>
+                        <label for='phone'>Número de Teléfono</label>
+                        <input type='tel' id='phone' name='phone'></input>
                     </div>
                     <div className='linea'>
-                        <p>E-mail</p>
-                        <input type='email'></input>
+                        <label for='mail'>E-mail</label>
+                        <input type='email' id='mail' name='mail'></input>
                     </div>
                     <div className='linea'>
-                        <p>Domicilio</p>
-                        <input type=''></input>
+                        <label for='direction'>Domicilio</label>
+                        <input type='text' id='direction' name='direction'></input>
                     </div>
                     <div className='linea'>
-                        <button>Registrar</button>
+                        <button className='register'>Registrar</button>
                     </div>
                 </form>
             </div>
