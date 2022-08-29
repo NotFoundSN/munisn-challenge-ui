@@ -52,7 +52,7 @@ function Header(props) {
         <React.Fragment>
             <div className='header'>
                 <button onClick={handleClick} className='img'><img src={logo} alt='logo' /></button>
-                <h1>Registro</h1>
+                <h1 id="titulo">Registro</h1>
             </div>
         </React.Fragment>
     );

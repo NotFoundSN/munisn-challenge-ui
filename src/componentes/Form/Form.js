@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from 'react';
-//import { useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import './Form.css';
 
 function Form(props) {
     //const [producto, modProducto] = useState({});
-    //let barra = useParams();
+    let barra = useParams();
 
     //component did mount
-    /*useEffect(() => {
-        getConsultas.getProducto(barra.id).then(prod => { modProducto(prod); })
-    }, [barra.id]);*/
+    useEffect(() => {
+        let titulo = document.getElementById("titulo");
+        titulo.innerHTML = "Registro";
+    }, [barra.id]);
 
     return (
         <React.Fragment>

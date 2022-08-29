@@ -1,5 +1,5 @@
-.linea {
-    max-width: 450px;
+.lineaLogin {
+    max-width: 350px;
     display: flex;
     flex-direction: row;
     gap: 10px;
@@ -7,18 +7,18 @@
 
 }
 
-.linea label {
+.lineaLogin label {
     width: 35%;
     text-align: right;
 }
 
-.linea input {
+.lineaLogin input {
     width: 65%;
     border-radius: 5px;
 }
 
-.register {
-    width: 450px;
+.login {
+    width: 350px;
     height: 30px;
     background-color: var(--clickeable);
     border-radius: 10px;
