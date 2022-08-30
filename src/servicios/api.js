@@ -2,21 +2,21 @@ const responder = async apiResponse => {
     const { data } = apiResponse;
     return data;
 }
-const ejecutar = async (link,datos) => {
+const ejecutar = async (link,datos,token) => {
+    if (!token)
+    {
+        token='0'
+    }
     return await fetch(`/api/${link}`, {
         method: 'POST', // or 'PUT'
         body: JSON.stringify(datos), // data can be `string` or {object}!
         headers:{
-          'Content-Type': 'application/json'
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
         }
       }).then(res => res.json())
-      .then(responder)
       .catch(error => console.error('Error:', error))
-      .then(response => console.log('Success:', response));
-    /*return await fetch(`/api/${link}`)
-        .then(respuesta => respuesta.json())
-        .then(responder)
-        .catch(error => console.log(error))*/
+      .then(responder)
 }
 
 module.exports = {

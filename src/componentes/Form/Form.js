@@ -17,27 +17,27 @@ function Form(props) {
             <div className='centrado'>
                 <form  className='formulario'>
                     <div className='linea'>
-                        <label for='name'>Nombre</label>
+                        <label htmlFor='name'>Nombre</label>
                         <input type='text' id='name' name='name'></input>
                     </div>
                     <div className='linea'>
-                        <label for='surname'>Apellido</label>
+                        <label htmlFor='surname'>Apellido</label>
                         <input type='text' id='surname' name='surname'></input>
                     </div>
                     <div className='linea'>
-                        <label for='dni'>Número de DNI</label>
+                        <label htmlFor='dni'>Número de DNI</label>
                         <input type='number' id='dni' name='dni'></input>
                     </div>
                     <div className='linea'>
-                        <label for='phone'>Número de Teléfono</label>
+                        <label htmlFor='phone'>Número de Teléfono</label>
                         <input type='tel' id='phone' name='phone'></input>
                     </div>
                     <div className='linea'>
-                        <label for='mail'>E-mail</label>
+                        <label htmlFor='mail'>E-mail</label>
                         <input type='email' id='mail' name='mail'></input>
                     </div>
                     <div className='linea'>
-                        <label for='direction'>Domicilio</label>
+                        <label htmlFor='direction'>Domicilio</label>
                         <input type='text' id='direction' name='direction'></input>
                     </div>
                     <div className='linea'>
