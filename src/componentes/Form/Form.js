@@ -1,10 +1,61 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { tryRegister } from '../../servicios/api';
 import './Form.css';
 
 function Form(props) {
-    //const [producto, modProducto] = useState({});
     let barra = useParams();
+    let modal = document.getElementById("myModal");
+    let errores = document.getElementById("errores");
+
+    const close = () => {
+        modal.style.display = "none";
+    };
+    window.onclick = function(event) {
+        if (event.target===modal) {
+          modal.style.display = "none";
+        }
+      }
+    const mostrarErrores = async (fallos) => {
+        errores.innerHTML = "errores <ul>";
+        errores.innerHTML += await fallos.map(fallo => {
+            return `<li>${fallo.msg}</li>`;
+        });
+        errores.innerHTML += '</ul>';
+    }
+
+    const reg = async () => {
+        errores.style.display='none';
+        let respuesta = await tryRegister({
+            name: `${document.getElementById("name").value}`,
+            surname: `${document.getElementById("surname").value}`,
+            DNI: `${document.getElementById("DNI").value}`,
+            phone: `${document.getElementById("phone").value}`,
+            email: `${document.getElementById("mail").value}`,
+            direction: `${document.getElementById("direction").value}`
+        });
+        console.log(respuesta);
+        if (respuesta.status===201)
+        {
+            document.getElementById('modalSay').innerHTML=respuesta.data;
+            modal.style.display = "block";
+        }
+        else if (respuesta.status===401)
+        {
+            mostrarErrores(respuesta.data);
+            errores.style.display='block';
+            document.getElementById('modalSay').innerHTML='Error en los datos ingresados';
+            modal.style.display = "block";
+        }
+        else
+        {
+            document.getElementById('modalSay').innerHTML=respuesta.data;
+            modal.style.display = "block";
+        }
+        
+        //ver codigo de error
+        //ver si muestro error en formulario o en modal
+    };
 
     //component did mount
     useEffect(() => {
@@ -25,8 +76,8 @@ function Form(props) {
                         <input type='text' id='surname' name='surname'></input>
                     </div>
                     <div className='linea'>
-                        <label htmlFor='dni'>Número de DNI</label>
-                        <input type='number' id='dni' name='dni'></input>
+                        <label htmlFor='DNI'>Número de DNI</label>
+                        <input type='number' id='DNI' name='DNI'></input>
                     </div>
                     <div className='linea'>
                         <label htmlFor='phone'>Número de Teléfono</label>
@@ -41,9 +92,17 @@ function Form(props) {
                         <input type='text' id='direction' name='direction'></input>
                     </div>
                     <div className='linea'>
-                        <button className='register'>Registrar</button>
+                        <button type="button" onClick={reg} className='register'>Registrar</button>
                     </div>
                 </form>
+            </div>
+            <div className='errores' id='errores'>
+            </div>
+            <div id="myModal" className="modal">
+                <div className="modal-content">
+                    <button type="button" onClick={close} className='close'>&times;</button>
+                    <p id='modalSay'></p>
+                </div>
             </div>
         </React.Fragment>
     );

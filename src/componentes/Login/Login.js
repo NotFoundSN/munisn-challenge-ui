@@ -1,27 +1,41 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import './Login.css';
 import "../../servicios/api";
 import { tryLogin } from '../../servicios/api';
 
 function Form(props) {
     let barra = useParams();
+    const navigate = useNavigate();
+    let modal = document.getElementById("myModal");
+
+    const close = () => {
+        modal.style.display = "none";
+    };
+
+
+    window.onclick = function(event) {
+        if (event.target===modal) {
+          modal.style.display = "none";
+        }
+      }
 
     const signin = async () => {
-        let token = await tryLogin({
+        let respuesta = await tryLogin({
             username: `${document.getElementById("user").value}`,
             password: `${document.getElementById("pass").value}`
         });
-        window.sessionStorage.setItem("token", token.token);
-        window.sessionStorage.setItem("name", token.name);
+        if (respuesta.status === 200) {
+            window.sessionStorage.setItem("token", respuesta.data.token);
+            window.sessionStorage.setItem("name", respuesta.data.name);
+            navigate('/view');
+        }
+        else {
+            document.getElementById('modalSay').innerHTML=respuesta.data;
+            modal.style.display = "block";
+        }
     };
 
-    //component did mount
-    
-    /*useEffect(() => {
-        let titulo = document.getElementById("titulo");
-        titulo.innerHTML = usuario;
-    }, [usuario]);*/
     useEffect(() => {
         let titulo = document.getElementById("titulo");
         titulo.innerHTML = "Login";
@@ -43,6 +57,12 @@ function Form(props) {
                         <button type="button" onClick={signin} className='login'>Login</button>
                     </div>
                 </form>
+            </div>
+            <div id="myModal" className="modal">
+                <div className="modal-content">
+                    <button type="button" onClick={close} className='close'>&times;</button>
+                    <p id='modalSay'></p>
+                </div>
             </div>
         </React.Fragment>
     );
