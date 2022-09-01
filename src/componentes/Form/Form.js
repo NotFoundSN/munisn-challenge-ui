@@ -25,7 +25,7 @@ function Form(props) {
     }
 
     const reg = async () => {
-        errores.style.display='none';
+        errores.style.display="none";
         let respuesta = await tryRegister({
             name: `${document.getElementById("name").value}`,
             surname: `${document.getElementById("surname").value}`,
@@ -34,7 +34,6 @@ function Form(props) {
             email: `${document.getElementById("mail").value}`,
             direction: `${document.getElementById("direction").value}`
         });
-        console.log(respuesta);
         if (respuesta.status===201)
         {
             document.getElementById('modalSay').innerHTML=respuesta.data;
@@ -43,7 +42,7 @@ function Form(props) {
         else if (respuesta.status===401)
         {
             mostrarErrores(respuesta.data);
-            errores.style.display='block';
+            errores.style.display="block";
             document.getElementById('modalSay').innerHTML='Error en los datos ingresados';
             modal.style.display = "block";
         }
@@ -52,13 +51,12 @@ function Form(props) {
             document.getElementById('modalSay').innerHTML=respuesta.data;
             modal.style.display = "block";
         }
-        
-        //ver codigo de error
-        //ver si muestro error en formulario o en modal
     };
 
     //component did mount
     useEffect(() => {
+        errores = document.getElementById("errores");
+        modal = document.getElementById("myModal");
         let titulo = document.getElementById("titulo");
         titulo.innerHTML = "Registro";
     }, [barra.id]);

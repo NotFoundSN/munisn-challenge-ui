@@ -16,7 +16,6 @@ const ejecutar = async (link,datos,token) => {
     }
     return await fetch(`/api/${link}`, {...cuerpo}).then(res => res.json())
       .catch(error => console.error('Error:', error))
-      //.then(responder)
 }
 
 module.exports = {

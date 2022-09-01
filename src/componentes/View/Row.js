@@ -1,7 +1,6 @@
 import React from 'react';
 
 function Row(props) {
-    console.log(props)
     return (
         <React.Fragment>
                 <tr>

@@ -9,11 +9,9 @@ function Header(props) {
     const handleClick = event => {
         if (event.detail === 3) {
             navigate('/view');
-            console.log('double click');
         }
         if (event.detail === 4) {
             navigate('/');
-            console.log('double click');
         }
     };
     

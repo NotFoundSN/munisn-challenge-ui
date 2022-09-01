@@ -7,8 +7,8 @@
 .tabla {
     position: absolute;
     top: 150px;
-    left: 15vw;
-    /*transform: translate(-50%, -50%);*/
+    left: 50%;
+    transform: translate(-50%, 0%);
 }
 
 .table-wrapper{
@@ -18,7 +18,7 @@
 
 .fl-table {
     border-radius: 5px;
-    font-size: 12px;
+    font-size: 20px;
     font-weight: normal;
     border: none;
     border-collapse: collapse;
@@ -35,7 +35,7 @@
 
 .fl-table td {
     border-right: 1px solid #f8f8f8;
-    font-size: 12px;
+    font-size: 18px;
 }
 
 .fl-table thead th {

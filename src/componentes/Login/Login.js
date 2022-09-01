@@ -37,6 +37,7 @@ function Form(props) {
     };
 
     useEffect(() => {
+        modal = document.getElementById("myModal");
         let titulo = document.getElementById("titulo");
         titulo.innerHTML = "Login";
     }, [barra.id]);
