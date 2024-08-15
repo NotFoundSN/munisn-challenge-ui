@@ -17,18 +17,6 @@ const ejecutar = async (link, datos, token) => {
 		.catch((error) => console.error("Error:", error));
 };
 
-/*export {
-    tryLogin: async (datos) => {
-        return await ejecutar('login', datos);
-    },
-    tryView: async (token) => {
-        let datos = '';
-        return await ejecutar('view', datos, token);
-    },
-    tryRegister: async (datos) => {
-        return await ejecutar('register', datos);
-    }
-}*/
 let temp = {
 	tryLogin: async (datos) => {
 		return await ejecutar("login", datos);
