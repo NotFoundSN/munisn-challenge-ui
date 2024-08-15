@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { tryRegister } from '../../servicios/api';
+import services from '../../servicios/api';
 import './Form.css';
 
+const { tryRegister} = services;
 function Form(props) {
     let barra = useParams();
     let modal = document.getElementById("myModal");

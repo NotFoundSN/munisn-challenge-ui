@@ -2,8 +2,9 @@ import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './Login.css';
 import "../../servicios/api";
-import { tryLogin } from '../../servicios/api';
+import services from '../../servicios/api';
 
+const { tryLogin } = services;
 function Form(props) {
     let barra = useParams();
     const navigate = useNavigate();

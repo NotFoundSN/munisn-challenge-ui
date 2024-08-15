@@ -3,8 +3,9 @@ import { useParams,useNavigate } from 'react-router-dom';
 import './View.css';
 import Row from './Row';
 import "../../servicios/api";
-import { tryView } from '../../servicios/api';
+import services from '../../servicios/api';
 
+const { tryView } = services;
 function View() {
     const [usuarios, modUsuarios] = useState([]);
     let barra = useParams();
